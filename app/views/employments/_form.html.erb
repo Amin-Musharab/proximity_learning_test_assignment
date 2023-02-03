@@ -1,0 +1,29 @@
+<div class="px-6 py-6 lg:px-8">
+  <%= form_with model: [@personal_datum,@employment] do |form| %>
+    <% if employment.errors.any? %>
+      <div style="color: red">
+        <h2><%= pluralize(employment.errors.count, "error") %> prohibited this employment from being saved:</h2>
+        <ul>
+          <% employment.errors.each do |error| %>
+            <li><%= error.full_message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+    <div>
+      <%= form.label :employer, class:"block mb-2 text-- font-medium text-gray-900 dark:text-black" %>
+      <%= form.text_field :employer, required: true, class:"bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-white-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-black" %>
+    </div>
+    <div>
+      <%= form.label :date_started, class:"block mb-2 text-- font-medium text-gray-900 dark:text-black" %>
+      <%= form.date_field :date_started , required: true, class:"bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-white-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-black"%>
+    </div>
+    <div>
+      <%= form.label :date_ended, class:"block mb-2 text-- font-medium text-gray-900 dark:text-black" %>
+      <%= form.date_field :date_ended , required: true, class:"bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-white-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-black"%>
+    </div>
+    <div>
+      <%= form.submit class:"w-full my-1.5 py-2 text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" %>
+    </div>
+  <% end %>
+</div>

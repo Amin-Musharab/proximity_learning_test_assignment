@@ -1,0 +1,17 @@
+<div id="<%= dom_id employment %>" class="text-center">
+  <p>
+    <strong>Employer:</strong>
+    <%= employment.employer %>
+  </p>
+  <p>
+    <strong>Date started:</strong>
+    <%= employment.date_started %>
+  </p>
+  <p>
+    <strong>Date ended:</strong>
+    <%= employment.date_ended %>
+  </p>
+  <% if editable %>
+    <%= button_to "Edit", edit_personal_datum_employment_path(employment.personal_datum,employment), method: :get, data: { turbo_frame: 'modal' },  class:"mt-3 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"%>
+  <% end %>
+</div>

@@ -1,0 +1,25 @@
+<p style="color: green"><%= notice %></p>
+<div class="container mx-auto">
+  <h1 class="text-3xl mt-3 text-center">Personal data</h1>
+  <div class="p-6 max-w-sm mx-auto bg-white rounded-xl shadow-lg flex items-center space-x-4">
+    <% if @personal_data.blank? %>
+      <div id="personal-data" data-controller="turbomodal" data-target="turbomodel.statusModal"></div>
+      <%= button_to "Add Personal Data", new_personal_datum_path, method: :get, data: { turbo_frame: 'modal' },  class:"mt-3 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded", id: "add-data-button"%>
+    <% else %>
+      <div id="" >
+        <% @personal_data.each do |personal_datum| %>
+          <%= render personal_datum%>
+        <% end %>
+        <%= render partial: "personal_data/personal_datum", collection: @personal_data,
+           as: :personal_datum%>
+      </div>
+    <% end %>
+  </div>
+  <h1 class="text-3xl mt-10 text-center">Employments</h1>
+  <div class="mt-2 p-6 max-w-sm mx-auto bg-white rounded-xl shadow-lg flex items-center space-x-4">
+    <div id="employments-data">
+      <%= render partial: "employments/employment", collection: @personal_data&.take&.employments,
+           as: :employment, locals: {editable: true} %>
+    </div>
+  </div>
+</div>

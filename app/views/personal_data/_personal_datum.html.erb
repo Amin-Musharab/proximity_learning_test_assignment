@@ -1,0 +1,39 @@
+<div id="<%= dom_id personal_datum %>">
+  <p>
+    <strong>First name:</strong>
+    <%= personal_datum.personal_info["first_name"] %>
+  </p>
+  <p>
+    <strong>Last name:</strong>
+    <%= personal_datum.personal_info["last_name"] %>
+  </p>
+  <p>
+    <strong>Nick name:</strong>
+    <%= personal_datum.personal_info["nick_name"] %>
+  </p>
+  <p>
+    <strong>Phone number:</strong>
+    <%= personal_datum.personal_info["phone_number"] %>
+  </p>
+  <p>
+    <strong>Email:</strong>
+    <%= personal_datum.email %>
+  </p>
+  <p>
+    <strong>Street:</strong>
+    <%= personal_datum.address["street"] %>
+  </p>
+  <p>
+    <strong>City:</strong>
+    <%= personal_datum.address["city"] %>
+  </p>
+  <p>
+    <strong>State:</strong>
+    <%= personal_datum.address["state"] %>
+  </p>
+  <p>
+    <strong>Zip:</strong>
+    <%= personal_datum.address["zip"] %>
+  </p>
+  <%= button_to "Edit", edit_personal_datum_path(personal_datum), method: :get, data: { turbo_frame: 'modal' },  class:"mt-3 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"%>
+</div>
